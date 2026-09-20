@@ -1,0 +1,685 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hostal La Casa de Don Rafael</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* =========================
+           BARRA DE NAVEGACIÓN
+        ========================= */
+
+        header {
+            background-color: #5a3921;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #e7c28b;
+        }
+
+        /* =========================
+           PORTADA
+        ========================= */
+
+        .hero {
+            height: 600px;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                ),
+                url("https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmEoKKMjIOa9FxtN8p27WzVUC_y_h19JeaZZ4CiI0zPHOjKKspMYNxIyP-Ir4T2wF-g_B980ahT-DkSwtxh1gRuthOa1HHlvXnXcnLT7KzLPveCNJh0oVoFPoa54VSn_aYfcOfi=w397-h298-k-no");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: #c49a5a;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background-color: #a77d43;
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo h2 {
+            font-size: 35px;
+            color: #5a3921;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            color: #666;
+        }
+
+        /* =========================
+           INFORMACIÓN
+        ========================= */
+
+        .informacion {
+            background-color: white;
+            text-align: center;
+        }
+
+        .informacion-contenedor {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .informacion-contenedor p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           HABITACIONES
+        ========================= */
+
+        .habitaciones {
+            background-color: #f5f5f5;
+        }
+
+        .habitaciones-contenedor {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .habitacion {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+
+        .habitacion img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .habitacion-info {
+            padding: 20px;
+        }
+
+        .habitacion-info h3 {
+            color: #5a3921;
+            margin-bottom: 10px;
+        }
+
+        .habitacion-info p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           RESERVACIÓN
+        ========================= */
+
+        .reserva {
+            background-color: white;
+        }
+
+        .formulario {
+            max-width: 700px;
+            margin: auto;
+            background-color: #f5f5f5;
+            padding: 35px;
+            border-radius: 10px;
+        }
+
+        .formulario label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .formulario input,
+        .formulario select {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .formulario button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            background-color: #5a3921;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .formulario button:hover {
+            background-color: #3f2717;
+        }
+
+        /* =========================
+           UBICACIÓN
+        ========================= */
+
+        .ubicacion {
+            background-color: #eee4d7;
+            text-align: center;
+        }
+
+        .ubicacion p {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .telefono {
+            font-size: 22px;
+            font-weight: bold;
+            color: #5a3921;
+        }
+
+        /* =========================
+           PIE DE PÁGINA
+        ========================= */
+
+        footer {
+            background-color: #5a3921;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* =========================
+           CELULARES
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .hero {
+                height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .habitaciones-contenedor {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         MENÚ
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            La Casa de Don Rafael
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#habitaciones">Habitaciones</a>
+            <a href="#reserva">Reservar</a>
+            <a href="#ubicacion">Contacto</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         PORTADA
+    ========================== -->
+
+    <section class="hero" id="inicio">
+
+        <div>
+
+            <h1>
+                Hostal La Casa de Don Rafael
+            </h1>
+
+            <p>
+                Un lugar para descansar y disfrutar de La Labor
+            </p>
+
+            <a href="#reserva" class="boton">
+                Reservar habitación
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INFORMACIÓN
+    ========================== -->
+
+    <section class="informacion">
+
+        <div class="titulo">
+
+            <h2>
+                Bienvenidos
+            </h2>
+
+            <p>
+                Conoce nuestro hostal
+            </p>
+
+        </div>
+
+        <div class="informacion-contenedor">
+
+            <p>
+                Bienvenido a <strong>Hostal La Casa de Don Rafael</strong>,
+                ubicado frente al parque central de La Labor, Ocotepeque.
+                Nuestro objetivo es ofrecerte un lugar cómodo y tranquilo
+                para descansar durante tu visita.
+            </p>
+
+            <br>
+
+            <p>
+                Estamos ubicados en una zona céntrica, ideal para quienes
+                desean conocer La Labor y sus alrededores.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HABITACIONES
+    ========================== -->
+
+    <section class="habitaciones" id="habitaciones">
+
+        <div class="titulo">
+
+            <h2>
+                Nuestras habitaciones
+            </h2>
+
+            <p>
+                Espacios preparados para tu descanso
+            </p>
+
+        </div>
+
+
+        <div class="habitaciones-contenedor">
+
+
+            <div class="habitacion">
+
+                <img
+                    src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlhTLQvisRZaMctzRYSW8RmfUyyPoPQZxR8emGYZbj80q0MI8LnhEHz5kjdmny5u_RG6dS-fTYStX1Aa4nk26MjYkNlJCoBZgxDoyNVY9-0XhIScOvqMDLCGbrXeRa9JjvZ4wysZQ=w397-h298-k-no"
+                    alt="Habitación del hostal"
+                >
+
+                <div class="habitacion-info">
+
+                    <h3>
+                        Habitación estándar
+                    </h3>
+
+                    <p>
+                        Habitación cómoda para descansar durante
+                        tu visita a La Labor.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="habitacion">
+
+                <img
+                    src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWljuxxJOMzjd9n7ZGN8y2DAgarjpMGE1NwzJyVDyRyijrUaZK4Zehy3jbPEDtfHrU610meUqC1pGXBj4Dsi-m7PY9PkNXCxuoVUprPNokwUUt9N3dWwn1h8v5U2Cg8NiMXoDyuzdA=w397-h298-k-no"
+                    alt="Habitación"
+                >
+
+                <div class="habitacion-info">
+
+                    <h3>
+                        Habitación familiar
+                    </h3>
+
+                    <p>
+                        Una opción para huéspedes que necesitan
+                        mayor espacio y comodidad.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="habitacion">
+
+                <img
+                    src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmEoKKMjIOa9FxtN8p27WzVUC_y_h19JeaZZ4CiI0zPHOjKKspMYNxIyP-Ir4T2wF-g_B980ahT-DkSwtxh1gRuthOa1HHlvXnXcnLT7KzLPveCNJh0oVoFPoa54VSn_aYfcOfi=w397-h298-k-no"
+                    alt="Hostal La Casa de Don Rafael"
+                >
+
+                <div class="habitacion-info">
+
+                    <h3>
+                        Habitación para huéspedes
+                    </h3>
+
+                    <p>
+                        Un espacio pensado para una estancia
+                        tranquila y agradable.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESERVACIÓN
+    ========================== -->
+
+    <section class="reserva" id="reserva">
+
+        <div class="titulo">
+
+            <h2>
+                Reserva tu habitación
+            </h2>
+
+            <p>
+                Completa el formulario y nos pondremos en contacto contigo.
+            </p>
+
+        </div>
+
+
+        <div class="formulario">
+
+            <form id="formReserva">
+
+                <label>
+                    Nombre completo
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Escribe tu nombre"
+                    required
+                >
+
+
+                <label>
+                    Teléfono
+                </label>
+
+                <input
+                    type="tel"
+                    id="telefono"
+                    placeholder="3192-3239"
+                    required
+                >
+
+
+                <label>
+                    Fecha de entrada
+                </label>
+
+                <input
+                    type="date"
+                    id="entrada"
+                    required
+                >
+
+
+                <label>
+                    Fecha de salida
+                </label>
+
+                <input
+                    type="date"
+                    id="salida"
+                    required
+                >
+
+
+                <label>
+                    Tipo de habitación
+                </label>
+
+                <select id="habitacion" required>
+
+                    <option value="">
+                        Selecciona una habitación
+                    </option>
+
+                    <option>
+                        Habitación estándar
+                    </option>
+
+                    <option>
+                        Habitación familiar
+                    </option>
+
+                    <option>
+                        Habitación para huéspedes
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Solicitar reserva
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         UBICACIÓN
+    ========================== -->
+
+    <section class="ubicacion" id="ubicacion">
+
+        <div class="titulo">
+
+            <h2>
+                ¿Dónde estamos?
+            </h2>
+
+        </div>
+
+        <p>
+            📍 Frente al parque central,
+            La Labor, Ocotepeque
+        </p>
+
+        <p>
+            📌 Referencia: FXPX+66 La Labor
+        </p>
+
+        <p class="telefono">
+            📞 3192-3239
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Hostal La Casa de Don Rafael
+        </p>
+
+        <p>
+            La Labor, Ocotepeque, Honduras
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const formulario =
+            document.getElementById("formReserva");
+
+        formulario.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const nombre =
+                document.getElementById("nombre").value;
+
+            const telefono =
+                document.getElementById("telefono").value;
+
+            const entrada =
+                document.getElementById("entrada").value;
+
+            const salida =
+                document.getElementById("salida").value;
+
+            const habitacion =
+                document.getElementById("habitacion").value;
+
+
+            alert(
+                "Solicitud de reserva enviada.\n\n" +
+
+                "Nombre: " + nombre + "\n" +
+
+                "Teléfono: " + telefono + "\n" +
+
+                "Entrada: " + entrada + "\n" +
+
+                "Salida: " + salida + "\n" +
+
+                "Habitación: " + habitacion
+            );
+
+            formulario.reset();
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
